@@ -1,11 +1,11 @@
-# Ansible Collection - wavefront.wavefront_proxy_collection
+# Ansible Collection - vandanasubbu.wavefront_proxy_collection
 
 This Ansible collection comprises of roles that allows you to install and configure wavefront-proxy from your playbook.
 
 To install the collection adjacent to your playbook:
 
 ```
-ansible-galaxy collection install wavefront.wavefront_proxy_collection
+ansible-galaxy collection install vandanasubbu.wavefront_proxy_collection
 ```
 
 To use the collection in your playbook after installation
