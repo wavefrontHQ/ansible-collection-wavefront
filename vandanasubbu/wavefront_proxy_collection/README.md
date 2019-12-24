@@ -11,9 +11,9 @@ ansible-galaxy collection install wavefront.wavefront_proxy_collection
 To use the collection in your playbook after installation
 
 ```
-- hosts: all
+- hosts: localhost
   collections:
-   - wavefront.wavefront_proxy_collection
+   - vandanasubbu.wavefront_proxy_collection
   tasks:
     - import_role:
         name: wavefront-proxy
