@@ -1,0 +1,5 @@
+---
+
+- name: restart wavefront-proxy
+  command: service wavefront-proxy restart
+  become: yes
