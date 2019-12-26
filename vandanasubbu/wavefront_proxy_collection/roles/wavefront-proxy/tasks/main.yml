@@ -13,6 +13,9 @@
   include: yum_install.yml
   when: ansible_os_family == 'RedHat'
 
+- name: Configure Wavefront Proxy
+  include: configure.yml
+  when: (ansible_os_family == 'Debian' and ansible_distribution == 'Ubuntu') or (ansible_os_family == 'RedHat')
 
 
 

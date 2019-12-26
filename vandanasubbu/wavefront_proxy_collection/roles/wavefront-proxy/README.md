@@ -17,6 +17,7 @@ Role Variables
 The following variables are available for override.
 ```
 wavefront_api_token: :         # Required. Your API Key
+wavefront_api_url:             # Required. 
 ```
 
 Install

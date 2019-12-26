@@ -40,3 +40,6 @@ histogramDayFlushSecs: 18000
 histogramDistListenerPorts: 40000
 histogramDistAccumulators: 2
 histogramDistFlushSecs: 70
+histogramReceiveBufferFlushInterval: 500
+histogramProcessingQueueScanInterval: 100
+histogramPersistMessages: "false"

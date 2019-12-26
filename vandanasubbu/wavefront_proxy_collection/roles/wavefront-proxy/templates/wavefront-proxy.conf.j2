@@ -121,7 +121,7 @@ customSourceTags=fqdn, hostname
 idFile={{ wavefront_config_dir }}/.wavefront_id
 
 ## Default location of buffer.* files for saving failed transmission for retry.
-buffer=/var/spool/{{ wavefront_proxy_pkg }}/buffer
+buffer=/var/spool/wavefront-proxy/buffer
 
 ## Number of threads retrying failed transmissions. Defaults to the number of processors (min. 4)
 ## Buffer files are maxed out at 2G each so increasing the number of retry threads effectively governs
@@ -159,7 +159,7 @@ buffer=/var/spool/{{ wavefront_proxy_pkg }}/buffer
 {% endif %}
 
 ## Path to the optional config file with preprocessor rules (advanced regEx replacements and whitelist/blacklists)
-#preprocessorConfigFile={{ wavefront_config_dir }}/preprocessor_rules.yaml
+preprocessorConfigFile={{ wavefront_config_dir }}/wavefront-proxy/preprocessor_rules.yaml
 
 ## This setting defines the cut-off point for what is considered a valid timestamp for back-dated points.
 ## Default (and recommended) value is 8760 (1 year), so all the data points from more than 1 year ago will be rejected.
@@ -205,11 +205,14 @@ histogramDistAccumulators={{ histogramDistAccumulators }}
 ## to WF).
 histogramDistFlushSecs={{ histogramDistFlushSecs }}
 
+histogramReceiveBufferFlushInterval={{ histogramReceiveBufferFlushInterval }}
+histogramProcessingQueueScanInterval={{ histogramProcessingQueueScanInterval }}
+
 ## Accumulation parameters
 ## Bounds the number of centroids per histogram. Must be in [20;1000]
 histogramCompression = 100
 ## Directory for persistent agent state, must be writable.
-histogramStateDirectory="/var/tmp"
+## histogramStateDirectory="/var/tmp"
 ## Interval to write-back accumulation changes to disk in millis
 histogramAccumulatorResolveInterval = 100
 ## Expected upper bound of concurrent accumulations, ~ #timeseries * #parallel reporting bins
@@ -220,7 +223,13 @@ avgHistogramKeyBytes=50
 avgHistogramDigestBytes=500
 ## Whether to persist received histogram messages to disk. WARNING only disable this, if loss of unprocessed sample data
 ## on agent shutdown is acceptable.
-persistMessages=true
+persistMessages={{ histogramPersistMessages }}
 ## Whether to persist accumulation state. WARNING any unflushed histograms will be lost on agent shutdown if disabled
-persistAccumulator=true
+persistAccumulator=false
 {% endif %}
+
+{% if ThreeD_proxy_enabled|default(False) %}
+traceListenerPorts={{ traceListenerListenerPorts }}
+{% endif %}
+
+pushListenerMaxReceivedLength=32768
