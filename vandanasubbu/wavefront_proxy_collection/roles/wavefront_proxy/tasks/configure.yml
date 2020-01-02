@@ -1,6 +1,14 @@
 ---
 - block:
 
+  - name: change permissions for /etc/wavefront
+    file:
+      path: /etc/wavefront
+      state: directory
+      owner: root
+      group: root
+      mode: 0777
+
   - name: copy proxy configuration to {{ wavefront_config_dir }}/wavefront-proxy/wavefront.conf
     template:
       dest: "{{ wavefront_config_dir }}/wavefront-proxy/wavefront.conf"

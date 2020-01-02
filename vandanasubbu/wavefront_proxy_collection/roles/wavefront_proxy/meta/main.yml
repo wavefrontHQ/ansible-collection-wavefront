@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  role_name: wavefront-proxy
+  role_name: wavefront_proxy
   author: mrz
   description: Install the Wavefront Proxy
   company: Wavefront by VMware
