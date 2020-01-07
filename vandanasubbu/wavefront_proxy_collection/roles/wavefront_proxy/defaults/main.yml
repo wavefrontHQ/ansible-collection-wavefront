@@ -6,7 +6,6 @@ wavefront_proxy_repo_url: "https://packagecloud.io/wavefront/proxy"
 wavefront_repo_gpgkey: "https://packagecloud.io/wavefront/proxy/gpgkey"
 wavefront_rpm_repo_url: "https://packagecloud.io/wavefront/proxy/el"
 
-wavefront_api_token: "{{ lookup('credstash', 'terraform.mon.api.key', region='us-west-2') }}"
 wavefront_config_dir: '/etc/wavefront'
 wavefront_config: "{{ wavefront_config_dir }}/tsconfig.json"
 wavefront_proxy_pkg: ""
@@ -43,3 +42,8 @@ histogramDistFlushSecs: 70
 histogramReceiveBufferFlushInterval: 500
 histogramProcessingQueueScanInterval: 100
 histogramPersistMessages: "false"
+
+traceListenerListenerPorts: 30000
+deltaCounterPort: 50000
+
+

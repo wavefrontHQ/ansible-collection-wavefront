@@ -16,7 +16,7 @@ ansible-galaxy collection install vandanasubbu.wavefront_proxy_collection
 To install the collection from the tarball:
 
 ```
-ansible-galaxy collection install vandanasubbu-wavefront_proxy_collection-1.0.7.tar.gz
+ansible-galaxy collection install vandanasubbu-wavefront_proxy_collection-1.1.0.tar.gz
 ```
 
 To use the collection in your playbook after installation

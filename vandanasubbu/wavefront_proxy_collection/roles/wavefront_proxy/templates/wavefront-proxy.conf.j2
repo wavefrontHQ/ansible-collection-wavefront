@@ -233,3 +233,9 @@ traceListenerPorts={{ traceListenerListenerPorts }}
 {% endif %}
 
 pushListenerMaxReceivedLength=32768
+
+{% if delta_counter_ports|default(False) %}
+deltaCounterPorts={{deltaCounterPort}}
+{% endif %}
+
+
