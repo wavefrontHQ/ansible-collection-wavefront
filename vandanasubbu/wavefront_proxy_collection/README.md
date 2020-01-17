@@ -16,10 +16,10 @@ ansible-galaxy collection install vandanasubbu.wavefront_proxy_collection
 To install the collection from the tarball:
 
 ```
-ansible-galaxy collection install vandanasubbu-wavefront_proxy_collection-1.1.0.tar.gz
+ansible-galaxy collection install vandanasubbu-wavefront_proxy_collection-1.2.0.tar.gz
 ```
 
-To use the collection in your playbook after installation
+To use the collection in your playbook and import wavefront-proxy after installation
 
 ```
 - hosts: localhost
@@ -32,4 +32,18 @@ To use the collection in your playbook after installation
       vars:
         wavefront_api_token: 'YOUR_WAVEFRONT_API_TOKEN'
         wavefront_api_url: 'YOUR_WAVEFRONT_URL'
+```
+
+To use the collection in your playbook and import telegraf after installation
+
+```
+- hosts: localhost
+  become: true
+  collections:
+   - vandanasubbu.wavefront_proxy_collection
+  tasks:
+    - import_role:
+        name: telegraf
+      vars:
+        proxy_address: 'YOUR_WAVEFRONT_PROXY_ADDRESS'
 ```

@@ -1,0 +1,14 @@
+[[inputs.exec]]
+  commands = ["{{ telegraf_script_dir }}/kernel-version.sh"]
+  data_format = "json"
+  interval = "5m"
+  name_override = "kernel"
+  tag_keys = ["vendor"]
+
+
+[[inputs.exec]]
+  commands = ["{{ telegraf_script_dir }}/os-version.sh"]
+  data_format = "json"
+  interval = "5m"
+  name_override = "os"
+  tag_keys = ["codename"]

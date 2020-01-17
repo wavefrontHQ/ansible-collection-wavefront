@@ -1,0 +1,22 @@
+---
+
+- block:
+
+  - name: "add influxdata apt-key"
+    apt_key:
+      keyserver: keyserver.ubuntu.com
+      id: 684A14CF2582E0C5
+      state: present
+
+  - name: "add influxdata repository"
+    apt_repository:
+      repo: "deb https://repos.influxdata.com/{{ ansible_distribution|lower }} {{ ansible_distribution_release }} stable"
+      filename: "telegraf-mainline"
+      state: present
+
+  - name: install wavefront telegraf
+    apt: name="telegraf" state=latest
+    ignore_errors: true
+
+  tags:
+   - telegraf
