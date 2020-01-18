@@ -1,4 +1,4 @@
-# Ansible Collection - vandanasubbu.wavefront_proxy_collection
+# Ansible Collection - wavefrontHQ.ansible-collection-wavefront
 
 This Ansible collection comprises of roles that allows you to install and configure wavefront-proxy from your playbook.
 
@@ -10,13 +10,13 @@ ansible version 2.9.* is required.
 To install the collection:
 
 ```
-ansible-galaxy collection install vandanasubbu.wavefront_proxy_collection
+ansible-galaxy collection install wavefrontHQ.ansible_collection_wavefront
 ```
 
 To install the collection from the tarball:
 
 ```
-ansible-galaxy collection install vandanasubbu-wavefront_proxy_collection-1.2.0.tar.gz
+ansible-galaxy collection install wavefrontHQ-ansible_collection_wavefront-1.2.0.tar.gz
 ```
 
 To use the collection in your playbook and import wavefront-proxy after installation
@@ -25,7 +25,7 @@ To use the collection in your playbook and import wavefront-proxy after installa
 - hosts: localhost
   become: true
   collections:
-   - vandanasubbu.wavefront_proxy_collection
+   - wavefrontHQ.ansible_collection_wavefront
   tasks:
     - import_role:
         name: wavefront_proxy
@@ -40,7 +40,7 @@ To use the collection in your playbook and import telegraf after installation
 - hosts: localhost
   become: true
   collections:
-   - vandanasubbu.wavefront_proxy_collection
+   - wavefrontHQ.ansible_collection_wavefront
   tasks:
     - import_role:
         name: telegraf

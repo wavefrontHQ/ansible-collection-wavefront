@@ -3,10 +3,10 @@
 # The namespace of the collection. This can be a company/brand/organization or product namespace under which all
 # content lives. May only contain alphanumeric characters and underscores. Additionally namespaces cannot start with
 # underscores or numbers and cannot contain consecutive underscores
-namespace: vandanasubbu
+namespace: wavefrontHQ
 
 # The name of the collection. Has the same character restrictions as 'namespace'
-name: wavefront_proxy_collection
+name: ansible_collection_wavefront
 
 # The version of the collection. Must be compatible with semantic versioning
 version: 1.2.0
@@ -45,13 +45,13 @@ tags: [wavefront, wavefront_proxy]
 dependencies: {}
 
 # The URL of the originating SCM repository
-repository: https://github.com/vandanasubbu/wavefront-proxy-collection
+repository: https://github.com/wavefrontHQ/ansible-collection-wavefront
 
 # The URL to any online docs
-documentation: https://github.com/vandanasubbu/wavefront-proxy-collection
+documentation: https://github.com/wavefrontHQ/ansible-collection-wavefront
 
 # The URL to the homepage of the collection/project
-homepage: https://github.com/vandanasubbu/wavefront-proxy-collection
+homepage: https://github.com/wavefrontHQ/ansible-collection-wavefront
 
 # The URL to the collection issue tracker
-issues: https://github.com/vandanasubbu/wavefront-proxy-collection
+issues: https://github.com/wavefrontHQ/ansible-collection-wavefront
