@@ -10,13 +10,13 @@ ansible version 2.9.* is required.
 To install the collection:
 
 ```
-ansible-galaxy collection install wavefrontHQ.ansible_collection_wavefront
+ansible-galaxy collection install wavefront.ansible_collection_wavefront
 ```
 
 To install the collection from the tarball:
 
 ```
-ansible-galaxy collection install wavefrontHQ-ansible_collection_wavefront-1.2.0.tar.gz
+ansible-galaxy collection install wavefront-ansible_collection_wavefront-1.3.0.tar.gz
 ```
 
 To use the collection in your playbook and import wavefront-proxy after installation
@@ -25,7 +25,7 @@ To use the collection in your playbook and import wavefront-proxy after installa
 - hosts: localhost
   become: true
   collections:
-   - wavefrontHQ.ansible_collection_wavefront
+   - wavefront.ansible_collection_wavefront
   tasks:
     - import_role:
         name: wavefront_proxy
@@ -40,7 +40,7 @@ To use the collection in your playbook and import telegraf after installation
 - hosts: localhost
   become: true
   collections:
-   - wavefrontHQ.ansible_collection_wavefront
+   - wavefront.ansible_collection_wavefront
   tasks:
     - import_role:
         name: telegraf
