@@ -16,8 +16,8 @@ Role Variables
 --------------
 The following variables are available for override.
 ```
-wavefront_api_token: :         # Required. Your API Key
-wavefront_api_url:             # Required. 
+wavefront_api_token:          # Required. Your API Key
+wavefront_api_url:            # Required.
 ```
 
 Install
@@ -36,10 +36,12 @@ Check out: [Advanced Control over Role Requirements Files](http://docs.ansible.c
 Examples
 ----------------
 1) Install Wavefront Proxy agent. This is the most basic configuration
-```
+
+```yaml
 - hosts: all
   roles:
-    - { role: wavefront.wavefront-ansible, wavefront_api_token: XXXXXXXXXXXXX}
+    - role: wavefront.wavefront-ansible
+      wavefront_api_token: XXXXXXXXXXXXX
 ```
 
 Dependencies
