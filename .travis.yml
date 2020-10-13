@@ -1,0 +1,51 @@
+---
+dist: bionic
+os: linux
+language: python
+services:
+  - docker
+
+before_install:
+  - sudo apt-get -qq update
+
+env:
+  global:
+    - COLLECTION_NAMESPACE: ericsysmin
+    - COLLECTION_NAME: wavefront
+  jobs:
+    # Molecule tests for telegraf
+    - ROLE=telegraf MOLECULE_DISTRO=centos-7 MOLECULE_COMMAND=/usr/sbin/init
+    - ROLE=telegraf MOLECULE_DISTRO=centos-8 MOLECULE_COMMAND=/usr/sbin/init
+    - ROLE=telegraf MOLECULE_DISTRO=fedora-32 MOLECULE_COMMAND=/usr/sbin/init
+    - ROLE=telegraf MOLECULE_DISTRO=fedora-31 MOLECULE_COMMAND=/usr/lib/systemd/systemd
+    - ROLE=telegraf MOLECULE_DISTRO=fedora-30 MOLECULE_COMMAND=/usr/lib/systemd/systemd
+    - ROLE=telegraf MOLECULE_DISTRO=ubuntu-16.04 MOLECULE_COMMAND=/sbin/init
+    - ROLE=telegraf MOLECULE_DISTRO=ubuntu-18.04 MOLECULE_COMMAND=/lib/systemd/systemd
+    - ROLE=telegraf MOLECULE_DISTRO=ubuntu-20.04 MOLECULE_COMMAND=/lib/systemd/systemd
+    - ROLE=telegraf MOLECULE_DISTRO=debian-9 MOLECULE_COMMAND=/lib/systemd/systemd
+    - ROLE=telegraf MOLECULE_DISTRO=debian-10 MOLECULE_COMMAND=/lib/systemd/systemd
+    # Molecule tests for wavefront_proxy
+    - ROLE=wavefront_proxy MOLECULE_DISTRO=centos-7 MOLECULE_COMMAND=/usr/sbin/init
+    - ROLE=wavefront_proxy MOLECULE_DISTRO=centos-8 MOLECULE_COMMAND=/usr/sbin/init
+    - ROLE=wavefront_proxy MOLECULE_DISTRO=fedora-32 MOLECULE_COMMAND=/usr/sbin/init
+    - ROLE=wavefront_proxy MOLECULE_DISTRO=fedora-31 MOLECULE_COMMAND=/usr/lib/systemd/systemd
+    - ROLE=wavefront_proxy MOLECULE_DISTRO=fedora-30 MOLECULE_COMMAND=/usr/lib/systemd/systemd
+    - ROLE=wavefront_proxy MOLECULE_DISTRO=ubuntu-16.04 MOLECULE_COMMAND=/sbin/init
+    - ROLE=wavefront_proxy MOLECULE_DISTRO=ubuntu-18.04 MOLECULE_COMMAND=/lib/systemd/systemd
+    - ROLE=wavefront_proxy MOLECULE_DISTRO=ubuntu-20.04 MOLECULE_COMMAND=/lib/systemd/systemd
+    - ROLE=wavefront_proxy MOLECULE_DISTRO=debian-9 MOLECULE_COMMAND=/lib/systemd/systemd
+    - ROLE=wavefront_proxy MOLECULE_DISTRO=debian-10 MOLECULE_COMMAND=/lib/systemd/systemd
+
+jobs:
+  fast_finish: true
+install:
+  - pip install molecule yamllint ansible-lint docker
+
+before_script:
+  - cd ../
+  - mkdir -p ansible_collections/$COLLECTION_NAMESPACE
+  - mv ansible-collection-$COLLECTION_NAME ansible_collections/$COLLECTION_NAMESPACE/$COLLECTION_NAME
+  - cd ansible_collections/$COLLECTION_NAMESPACE/$COLLECTION_NAME
+
+script:
+  - molecule test --scenario-name $ROLE
