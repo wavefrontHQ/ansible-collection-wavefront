@@ -11,7 +11,7 @@ telegraf_debug: "true"
 
 zfs: false
 
-proxy_port: "{{ telegraf_port }}"
+telegraf_wavefront_proxy_port: "{{ telegraf_port }}"
 
 telegraf_procstat:
 
@@ -20,5 +20,3 @@ telegraf_udp_listener_port: 8092
 
 telegraf_http_listener: True
 telegraf_udp_listener: True
-
-

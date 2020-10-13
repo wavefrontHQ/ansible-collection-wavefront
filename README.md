@@ -24,11 +24,9 @@ To use the collection in your playbook and import wavefront-proxy after installa
 ```
 - hosts: localhost
   become: true
-  collections:
-   - wavefront.ansible_collection_wavefront
   tasks:
     - import_role:
-        name: wavefront_proxy
+        name: wavefront.wavefront.wavefront_proxy
       vars:
         wavefront_api_token: 'YOUR_WAVEFRONT_API_TOKEN'
         wavefront_api_url: 'YOUR_WAVEFRONT_URL'
@@ -39,11 +37,9 @@ To use the collection in your playbook and import telegraf after installation
 ```
 - hosts: localhost
   become: true
-  collections:
-   - wavefront.ansible_collection_wavefront
   tasks:
     - import_role:
-        name: telegraf
+        name: wavefront.wavefront.telegraf
       vars:
-        proxy_address: 'YOUR_WAVEFRONT_PROXY_ADDRESS'
+        telegraf_wavefront_proxy_address: 'YOUR_WAVEFRONT_PROXY_ADDRESS'
 ```
