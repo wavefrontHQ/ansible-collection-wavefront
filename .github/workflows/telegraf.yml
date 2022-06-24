@@ -45,9 +45,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt install docker
-          python -m pip install --upgrade pip
-          pip install molecule yamllint ansible-lint docker
+          sudo apt install apt-transport-https ca-certificates curl software-properties-common
+          curl -fsSL https://get.docker.com -o get-docker.sh
+          sudo sh get-docker.sh
+          python3 -m pip install --upgrade pip
+          python3 -m pip install ansible==5.9.0 molecule[docker] ansible-lint
 
       - name: Run role tests
         run: >-

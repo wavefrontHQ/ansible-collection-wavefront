@@ -20,4 +20,4 @@
         dest: /etc/systemd/system/containerd.service.d/override.conf
       when: ansible_service_mgr == "systemd"
   roles:
-    - role: ericsysmin.wavefront.telegraf
+    - role: wavefront.wavefront.telegraf
