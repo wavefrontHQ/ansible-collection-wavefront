@@ -36,7 +36,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
         with:
-          path: molecule_demo
+          path: ansible_collections/wavefront/wavefront
 
       - name: Set up Python 3.8
         uses: actions/setup-python@v2
@@ -53,7 +53,7 @@ jobs:
 
       - name: Run role tests
         run: >-
-          cd roles/${{ matrix.collection_role }} &&
+          cd ansible_collections/wavefront/wavefront/roles/${{ matrix.collection_role }} &&
           molecule --version &&
           ansible --version &&
           MOLECULE_COMMAND=${{ matrix.molecule_distro.command }}
