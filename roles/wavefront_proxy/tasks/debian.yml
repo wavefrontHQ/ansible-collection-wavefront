@@ -1,0 +1,38 @@
+---
+- name: Wavefront Proxy | Debian | Update Cache
+  ansible.builtin.apt:
+    update_cache: true
+
+- name: Wavefront Proxy | Debian | Install Archive Keyring
+  ansible.builtin.apt:
+    name: debian-archive-keyring
+  when: ansible_distribution == "Debian"
+
+- name: Wavefront Proxy | Debian | Install required tools
+  ansible.builtin.apt:
+    name:
+      - gnupg
+      - apt-transport-https
+
+- name: Wavefront Proxy | Debian | Add the Apt GPG Key
+  ansible.builtin.apt_key:
+    url: "{{ wavefront_proxy_repo_gpgkey }}"
+    state: present
+
+- name: Wavefront Proxy | Debian | Add Apt Repository
+  ansible.builtin.apt_repository:
+    repo: "deb {{ wavefront_proxy_repo_url }}/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} main"
+    state: present
+    filename: wavefront_proxy.list
+
+- name: Wavefront Proxy | Debian | Add Apt Source Repository
+  ansible.builtin.apt_repository:
+    repo: "deb-src {{ wavefront_proxy_repo_url }}/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} main"
+    state: present
+    filename: wavefront_proxy.list
+
+- name: Wavefront Proxy | Debian | Install Wavefront Proxy
+  ansible.builtin.apt:
+    name: "{{ wavefront_proxy_package }}"
+    update_cache: true
+    state: present

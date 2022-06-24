@@ -1,15 +1,15 @@
-name: "wavefront.wavefront.telegraf"
+name: "wavefront.wavefront.wavefront_proxy"
 on:
   push:
     paths:
-      - "roles/telegraf/**"
-      - "molecule/telegraf/**"
-      - ".github/workflows/telegraf.yml"
+      - "roles/wavefront_proxy/**"
+      - "molecule/wavefront_proxy/**"
+      - ".github/workflows/wavefront_proxy.yml"
   pull_request:
     paths:
-      - "roles/telegraf/**"
-      - "molecule/telegraf/**"
-      - ".github/workflows/telegraf.yml"
+      - "roles/wavefront_proxy/**"
+      - "molecule/wavefront_proxy/**"
+      - ".github/workflows/wavefront_proxy.yml"
 jobs:
   logrotate:
     runs-on: ubuntu-18.04
@@ -31,7 +31,7 @@ jobs:
           - { "distro": "debian-9", "command": "/lib/systemd/systemd" }
           - { "distro": "debian-10", "command": "/lib/systemd/systemd" }
         collection_role:
-          - telegraf
+          - wavefront_proxy
     steps:
       - name: Check out code
         uses: actions/checkout@v1
