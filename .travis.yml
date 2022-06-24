@@ -10,7 +10,7 @@ before_install:
 
 env:
   global:
-    - COLLECTION_NAMESPACE: ericsysmin
+    - COLLECTION_NAMESPACE: wavefrontHQ
     - COLLECTION_NAME: wavefront
   jobs:
     # Molecule tests for telegraf
