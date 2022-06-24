@@ -34,12 +34,12 @@ jobs:
           - wavefront_proxy
     steps:
       - name: Check out code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         with:
-          path: ansible_collections/wavefront/wavefront
+          path: molecule_demo
 
       - name: Set up Python 3.8
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v2
         with:
           python-version: 3.8
 
@@ -53,8 +53,9 @@ jobs:
 
       - name: Run role tests
         run: >-
+          cd roles/${{ matrix.collection_role }} &&
           molecule --version &&
           ansible --version &&
           MOLECULE_COMMAND=${{ matrix.molecule_distro.command }}
           MOLECULE_DISTRO=${{ matrix.molecule_distro.distro }}
-          molecule --debug test -s ${{ matrix.collection_role }}
+          molecule --debug test

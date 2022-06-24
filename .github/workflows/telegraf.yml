@@ -11,7 +11,7 @@ on:
       - "molecule/telegraf/**"
       - ".github/workflows/telegraf.yml"
 jobs:
-  logrotate:
+  telegraf:
     runs-on: ubuntu-18.04
     env:
       PY_COLORS: 1
@@ -53,8 +53,9 @@ jobs:
 
       - name: Run role tests
         run: >-
+          cd roles/${{ matrix.collection_role }} &&
           molecule --version &&
           ansible --version &&
           MOLECULE_COMMAND=${{ matrix.molecule_distro.command }}
           MOLECULE_DISTRO=${{ matrix.molecule_distro.distro }}
-          molecule --debug test -s ${{ matrix.collection_role }}
+          molecule --debug test

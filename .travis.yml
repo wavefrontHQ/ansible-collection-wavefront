@@ -10,8 +10,8 @@ before_install:
 
 env:
   global:
-    - COLLECTION_NAMESPACE: wavefrontHQ
-    - COLLECTION_NAME: wavefront
+    - COLLECTION_NAMESPACE: "wavefrontHQ"
+    - COLLECTION_NAME: "wavefront"
   jobs:
     # Molecule tests for telegraf
     - ROLE=telegraf MOLECULE_DISTRO=centos-7 MOLECULE_COMMAND=/usr/sbin/init
@@ -39,7 +39,11 @@ env:
 jobs:
   fast_finish: true
 install:
-  - pip install molecule yamllint ansible-lint docker
+  - sudo apt install apt-transport-https ca-certificates curl software-properties-common
+  - curl -fsSL https://get.docker.com -o get-docker.sh
+  - sudo sh get-docker.sh
+  - python3 -m pip install --upgrade pip
+  - python3 -m pip install ansible==5.9.0 molecule[docker] ansible-lint
 
 before_script:
   - cd ../

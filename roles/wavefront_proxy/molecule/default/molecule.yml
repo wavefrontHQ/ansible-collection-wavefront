@@ -8,7 +8,7 @@ lint: |
   ansible-lint
 platforms:
   - name: instance
-    image: ${MOLECULE_DISTRO:-ubuntu:bionic}
+    image: ${MOLECULE_DISTRO:-ubuntu-bionic}
     privileged: true
     command: ${MOLECULE_COMMAND:-"sleep infinity"}
     volumes:

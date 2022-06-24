@@ -3,8 +3,8 @@ galaxy_info:
   role_name: wavefront_proxy
   author: Eric Anderson
   description: Role to install and configure Wavefront Proxy
-  company: Avi Networks
-  issue_tracker_url: https://https://gitlab.eng.vmware.com/aeric/ansible-collection-wavefront/issues
+  company: VMware
+  issue_tracker_url: https://github.com/wavefrontHQ/ansible-collection-wavefront/issues
   license: Apache-2.0
   min_ansible_version: "2.9"
   platforms:
