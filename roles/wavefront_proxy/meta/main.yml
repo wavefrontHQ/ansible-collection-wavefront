@@ -1,47 +1,34 @@
 ---
 galaxy_info:
   role_name: wavefront_proxy
-  author: mrz
-  description: Install the Wavefront Proxy
-  company: Wavefront by VMware
-  license: license (Apache)
-  min_ansible_version: 1.3
+  author: Eric Anderson
+  description: Role to install and configure Wavefront Proxy
+  company: VMware
+  issue_tracker_url: https://github.com/wavefrontHQ/ansible-collection-wavefront/issues
+  license: Apache-2.0
+  min_ansible_version: "2.9"
   platforms:
-  - name: EL
-    versions:
-    - all
-    - 5
-    - 6
-    - 7
-  - name: Fedora
-    versions:
-    - all
-    - 16
-    - 17
-    - 18
-    - 19
-    - 20
-  - name: Amazon
-    versions:
-    - all
-    - 2013.03
-    - 2013.09
-  - name: Ubuntu
-    versions:
-    - all
-    - lucid
-    - maverick
-    - natty
-    - oneiric
-    - precise
-    - quantal
-    - raring
-    - saucy
-    - trusty
-  categories:
-  - cloud
-  - cloud:ec2
-  - monitoring
-  - system
-  - wavefront
+    - name: EL
+      versions:
+        - "8"
+        - "9"
+    - name: Fedora
+      versions:
+        - "27"
+        - "28"
+    - name: Ubuntu
+      versions:
+        - trusty
+        - xenial
+        - bionic
+    - name: Debian
+      versions:
+        - jessie
+        - stretch
+        - wheezy
+  galaxy_tags:
+    - docker
+    - ubuntu
+    - centos
+    - debian
 dependencies: []

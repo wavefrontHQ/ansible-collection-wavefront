@@ -1,5 +1,6 @@
 ---
-
+# handlers file for wavefront_proxy
 - name: restart wavefront-proxy
-  command: service wavefront-proxy restart
-  become: yes
+  ansible.builtin.service:
+    name: wavefront-proxy
+    state: restarted

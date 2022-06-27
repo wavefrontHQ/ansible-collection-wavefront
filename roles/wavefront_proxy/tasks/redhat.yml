@@ -1,0 +1,40 @@
+---
+- name: Wavefront Proxy | RedHat | Yum dependencies
+  ansible.builtin.yum:
+    name:
+      - yum-utils
+    state: present
+
+- name: Wavefront Proxy | RedHat | Add wavefront_proxy repo
+  ansible.builtin.yum_repository:
+    name: wavefront_proxy
+    description: wavefront_proxy
+    file: wavefront_proxy
+    baseurl: "{{ wavefront_proxy_repo_url }}/el/{{ ansible_distribution_major_version }}/$basearch"
+    gpgcheck: false
+    repo_gpgcheck: false
+    enabled: true
+    gpgkey: "{{ wavefront_proxy_repo_gpgkey }}"
+    sslverify: true
+    sslcacert: /etc/pki/tls/certs/ca-bundle.crt
+    metadata_expire: 300
+
+- name: Wavefront Proxy | RedHat | Add wavefront_proxy-source repo
+  ansible.builtin.yum_repository:
+    name: wavefront_proxy-source
+    description: wavefront_proxy-source
+    file: wavefront_proxy
+    baseurl: "{{ wavefront_proxy_repo_url }}/el/{{ ansible_distribution_major_version }}/SRPMS"
+    gpgcheck: false
+    repo_gpgcheck: false
+    enabled: true
+    gpgkey: "{{ wavefront_proxy_repo_gpgkey }}"
+    sslverify: true
+    sslcacert: /etc/pki/tls/certs/ca-bundle.crt
+    metadata_expire: 300
+
+- name: Wavefront Proxy | RedHat | Install Wavefront Proxy
+  ansible.builtin.yum:
+    name: "{{ wavefront_proxy_package }}"
+    update_cache: true
+    state: present
