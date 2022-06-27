@@ -166,7 +166,7 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 
 ## Example Playbook
 
-```
+```yaml
 - name: Install Wavefront Proxy
   hosts: all
   tasks:
@@ -179,7 +179,7 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 
 ## License
 
-BSD
+Apache-2.0
 
 ## Author Information
 

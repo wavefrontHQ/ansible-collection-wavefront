@@ -3,10 +3,10 @@
 # The namespace of the collection. This can be a company/brand/organization or product namespace under which all
 # content lives. May only contain alphanumeric characters and underscores. Additionally namespaces cannot start with
 # underscores or numbers and cannot contain consecutive underscores
-namespace: wavefront
+namespace: ericsysmin
 
 # The name of the collection. Has the same character restrictions as 'namespace'
-name: ansible_collection_wavefront
+name: wavefront
 
 # The version of the collection. Must be compatible with semantic versioning
 version: 1.3.0
@@ -18,6 +18,7 @@ readme: README.md
 # @nicks:irc/im.site#channel'
 authors:
 - Vandana Subburathinam <subburathinv@vmware.com>
+- Eric Anderson <aeric@vmware.com>
 
 
 ### OPTIONAL but strongly recommended
@@ -45,13 +46,13 @@ tags: [wavefront, wavefront_proxy]
 dependencies: {}
 
 # The URL of the originating SCM repository
-repository: https://github.com/wavefrontHQ/ansible-collection-wavefront
+repository: https://github.com/ericsysmin/ansible-collection-wavefront
 
 # The URL to any online docs
-documentation: https://github.com/wavefrontHQ/ansible-collection-wavefront
+documentation: https://github.com/ericsysmin/ansible-collection-wavefront
 
 # The URL to the homepage of the collection/project
-homepage: https://github.com/wavefrontHQ/ansible-collection-wavefront
+homepage: https://github.com/ericsysmin/ansible-collection-wavefront
 
 # The URL to the collection issue tracker
-issues: https://github.com/wavefrontHQ/ansible-collection-wavefront
+issues: https://github.com/ericsysmin/ansible-collection-wavefront
