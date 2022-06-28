@@ -1,0 +1,4 @@
+ansible==5.9.0
+molecule
+molecule-containers
+ansible-lint
