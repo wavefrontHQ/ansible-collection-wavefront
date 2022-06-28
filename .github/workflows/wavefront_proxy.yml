@@ -45,7 +45,7 @@ jobs:
           curl -fsSL https://get.docker.com -o get-docker.sh
           sudo sh get-docker.sh
           python3 -m pip install --upgrade pip
-          python3 -m pip install -r ansible==5.9.0 molecule[containers] ansible-lint
+          python3 -m pip install ansible==5.9.0 molecule[containers] ansible-lint
 
       - name: Run role tests
         run: >-
