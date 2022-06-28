@@ -4,13 +4,13 @@ This Ansible collection comprises of roles that allows you to install and config
 
 Pre-requisites:
 
-```
+```shell
 ansible >= 2.9 is required.
 ```
 
 To install the collection:
 
-```
+```shell
 ansible-galaxy collection install ericsysmin.wavefront
 ```
 
