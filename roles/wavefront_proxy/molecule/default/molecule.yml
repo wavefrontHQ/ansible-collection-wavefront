@@ -2,7 +2,7 @@
 dependency:
   name: galaxy
 driver:
-  name: containers
+  name: docker
 lint: |
   set -e
   ansible-lint
