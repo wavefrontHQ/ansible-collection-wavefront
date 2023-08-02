@@ -1,3 +1,7 @@
+> **Warning**
+>
+> VMware has ended active development of this project. this repository will no longer be updated.
+
 # Ansible Collection - wavefrontHQ.ansible-collection-wavefront
 
 This Ansible collection comprises of roles that allows you to install and configure wavefront-proxy from your playbook.
